@@ -19,7 +19,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'content', component: ContentComponent },
-  { path: 'content-detail', component: ContentDetailComponent },
+  { path: 'content/:id', component: ContentDetailComponent },
   {
     path: 'admin',
     children: [
