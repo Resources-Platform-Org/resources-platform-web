@@ -1,0 +1,174 @@
+<div class="flex min-h-screen bg-background">
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <main class="flex-1 p-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground mb-2">Dashboard</h1>
+      <p class="text-muted-foreground">Overview of your educational platform</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <!-- Stat 1 -->
+      <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6 flex-row items-center justify-between pb-2">
+          <h3 class="font-semibold leading-none tracking-tight text-sm font-medium text-muted-foreground">
+            Total Summaries
+          </h3>
+          <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 1-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="text-3xl font-bold">1,284</div>
+          <p class="text-xs text-success mt-1">+12% from last month</p>
+        </div>
+      </div>
+
+      <!-- Stat 2 -->
+      <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6 flex-row items-center justify-between pb-2">
+          <h3 class="font-semibold leading-none tracking-tight text-sm font-medium text-muted-foreground">
+            Total Exams
+          </h3>
+          <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="text-3xl font-bold">856</div>
+          <p class="text-xs text-success mt-1">+8% from last month</p>
+        </div>
+      </div>
+
+      <!-- Stat 3 -->
+      <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6 flex-row items-center justify-between pb-2">
+          <h3 class="font-semibold leading-none tracking-tight text-sm font-medium text-muted-foreground">
+            Universities
+          </h3>
+          <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
+          </div>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="text-3xl font-bold">24</div>
+          <p class="text-xs text-success mt-1">+2 from last month</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <h3 class="font-semibold leading-none tracking-tight">Most Downloaded Majors</h3>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Computer Science</span>
+              <div class="flex items-center gap-3">
+                <div class="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 100%"></div>
+                </div>
+                <span class="text-sm text-muted-foreground w-12 text-right">100%</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Business Admin</span>
+              <div class="flex items-center gap-3">
+                <div class="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+                </div>
+                <span class="text-sm text-muted-foreground w-12 text-right">85%</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Engineering</span>
+              <div class="flex items-center gap-3">
+                <div class="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                  <div class="h-full bg-primary rounded-full" style="width: 70%"></div>
+                </div>
+                <span class="text-sm text-muted-foreground w-12 text-right">70%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+        <div class="flex flex-col space-y-1.5 p-6">
+          <h3 class="font-semibold leading-none tracking-tight">Most Active Universities</h3>
+        </div>
+        <div class="p-6 pt-0">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Tech University</span>
+              <div class="flex items-center gap-3">
+                <div class="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                  <div class="h-full bg-accent rounded-full" style="width: 95%"></div>
+                </div>
+                <span class="text-sm text-muted-foreground w-12 text-right">95%</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">State University</span>
+              <div class="flex items-center gap-3">
+                <div class="w-32 h-2 bg-muted rounded-full overflow-hidden">
+                  <div class="h-full bg-accent rounded-full" style="width: 83%"></div>
+                </div>
+                <span class="text-sm text-muted-foreground w-12 text-right">83%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Uploads -->
+    <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h3 class="font-semibold leading-none tracking-tight">Recent Uploads</h3>
+      </div>
+      <div class="p-6 pt-0">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-muted/50 transition-colors">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium">Advanced Calculus Exam</h4>
+                <p class="text-sm text-muted-foreground">
+                  Tech University • Mathematics
+                </p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium">Prof. Anderson</p>
+              <p class="text-xs text-muted-foreground">2 hours ago</p>
+            </div>
+          </div>
+          <div class="flex items-center justify-between p-4 border border-border rounded-lg hover:bg-muted/50 transition-colors">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+              </div>
+              <div>
+                <h4 class="font-medium">Marketing Strategy Summary</h4>
+                <p class="text-sm text-muted-foreground">
+                  Business School • Marketing
+                </p>
+              </div>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-medium">Dr. Wilson</p>
+              <p class="text-xs text-muted-foreground">5 hours ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

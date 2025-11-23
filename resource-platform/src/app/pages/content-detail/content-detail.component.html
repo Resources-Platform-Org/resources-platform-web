@@ -1,0 +1,103 @@
+<div class="min-h-screen flex flex-col">
+  <app-navbar></app-navbar>
+
+  <main class="flex-1 py-12">
+    <div class="container mx-auto px-6">
+      <!-- Breadcrumbs -->
+      <div class="flex items-center gap-2 text-sm text-muted-foreground mb-8">
+        <a routerLink="/" class="hover:text-primary transition-colors">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m9 18 6-6-6-6"/></svg>
+        <a routerLink="/content" class="hover:text-primary transition-colors">Content</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m9 18 6-6-6-6"/></svg>
+        <span class="text-foreground">Data Structures Final Exam 2023</span>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="rounded-xl border bg-card text-card-foreground shadow-lg">
+          <div class="flex flex-col space-y-1.5 p-6 space-y-4">
+            <div>
+              <h3 class="font-semibold leading-none tracking-tight text-3xl mb-4">Data Structures Final Exam 2023</h3>
+              <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-lg text-sm font-medium">
+                Exam
+              </span>
+            </div>
+          </div>
+
+          <div class="p-6 pt-0 space-y-8">
+            <!-- Key Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-sm font-medium text-muted-foreground mb-1">University</h3>
+                  <p class="text-lg font-semibold">Tech University</p>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-muted-foreground mb-1">Major</h3>
+                  <p class="text-lg font-semibold">Computer Science</p>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-muted-foreground mb-1">Level</h3>
+                  <p class="text-lg font-semibold">Bachelor Year 2</p>
+                </div>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <h3 class="text-sm font-medium text-muted-foreground mb-1">Upload Date</h3>
+                  <p class="text-lg font-semibold">January 15, 2024</p>
+                </div>
+                <div>
+                  <h3 class="text-sm font-medium text-muted-foreground mb-1">Uploaded By</h3>
+                  <p class="text-lg font-semibold">Prof. Johnson</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div>
+              <h3 class="text-xl font-bold mb-3">Description</h3>
+              <p class="text-muted-foreground leading-relaxed">This comprehensive final exam covers all major topics in data structures including arrays, linked lists, stacks, queues, trees, graphs, and sorting algorithms. The exam consists of both theoretical questions and practical implementation problems. Students are expected to demonstrate understanding of time complexity analysis, algorithm design, and efficient problem-solving techniques. This material is particularly useful for students preparing for their final examinations or those looking to review key concepts in data structures.</p>
+            </div>
+
+            <!-- File Information -->
+            <div class="bg-secondary p-6 rounded-lg">
+              <h3 class="text-xl font-bold mb-4">File Information</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Pages</p>
+                  <p class="text-lg font-semibold">12</p>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Size</p>
+                  <p class="text-lg font-semibold">2.4 MB</p>
+                </div>
+                <div>
+                  <p class="text-sm text-muted-foreground mb-1">Format</p>
+                  <p class="text-lg font-semibold">PDF</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Button -->
+            <div class="flex gap-4 pt-4">
+              <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 flex-1 md:flex-none md:min-w-[200px]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download File
+              </button>
+              <a routerLink="/content" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 rounded-md px-8">
+                Back to Content
+              </a>
+            </div>
+
+            <!-- Preview Placeholder -->
+            <div class="border-2 border-dashed border-border rounded-lg p-12 text-center">
+              <p class="text-muted-foreground">File preview will appear here</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+</div>

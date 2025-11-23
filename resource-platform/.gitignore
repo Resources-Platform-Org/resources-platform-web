@@ -43,3 +43,5 @@ logs/
 # System files
 .DS_Store
 Thumbs.db
+\n+# Legacy raw HTML conversion artifacts (exclude from repo)
+converted-to-angular/

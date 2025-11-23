@@ -1,0 +1,99 @@
+<div class="flex min-h-screen bg-background">
+  <app-admin-sidebar></app-admin-sidebar>
+
+  <main class="flex-1 p-8">
+    <div class="mb-8">
+      <h1 class="text-3xl font-bold text-foreground mb-2">Activity Logs</h1>
+      <p class="text-muted-foreground">Track all system activities and changes</p>
+    </div>
+
+    <div class="rounded-xl border bg-card text-card-foreground shadow-sm">
+      <div class="flex flex-col space-y-1.5 p-6">
+        <h3 class="font-semibold leading-none tracking-tight">Recent Activities</h3>
+      </div>
+      <div class="p-6 pt-0">
+        <div class="relative w-full overflow-auto">
+          <table class="w-full caption-bottom text-sm">
+            <thead class="[&_tr]:border-b">
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">User</th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">Action</th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">Details</th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">Type</th>
+                <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">Timestamp</th>
+              </tr>
+            </thead>
+            <tbody class="[&_tr:last-child]:border-0">
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Admin</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Added new file</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">Data Structures Final Exam 2023</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-500 text-white hover:bg-green-500/80">
+                    Create
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 14:30:00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Prof. Johnson</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Updated file</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">Introduction to Algorithms Summary</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-blue-500 text-white hover:bg-blue-500/80">
+                    Update
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 13:15:00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Admin</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Deleted user</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">user@example.com</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80">
+                    Delete
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 12:00:00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Dr. Smith</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Added new file</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">Organic Chemistry Reference Guide</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-500 text-white hover:bg-green-500/80">
+                    Create
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 11:45:00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Admin</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Added university</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">New Tech University</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-green-500 text-white hover:bg-green-500/80">
+                    Create
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 10:30:00</td>
+              </tr>
+              <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">Admin</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">Updated settings</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-muted-foreground">Platform name changed</td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                  <div class="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-blue-500 text-white hover:bg-blue-500/80">
+                    Update
+                  </div>
+                </td>
+                <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">2024-01-15 09:00:00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
