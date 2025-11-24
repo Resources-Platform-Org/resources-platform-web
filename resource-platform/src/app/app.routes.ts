@@ -16,6 +16,7 @@ import { ActivityLogsComponent } from './admin/activity-logs/activity-logs.compo
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'content', component: ContentComponent },
