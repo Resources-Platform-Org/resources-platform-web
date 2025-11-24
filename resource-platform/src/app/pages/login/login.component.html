@@ -10,17 +10,28 @@
       <p class="text-sm text-muted-foreground">Sign in to access your account</p>
     </div>
 
-    <form>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="p-6 pt-0 space-y-4">
+        
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="p-3 text-sm text-red-500 bg-red-50 rounded-md border border-red-200">
+          {{ errorMessage }}
+        </div>
+
         <div class="space-y-2">
-          <label for="email" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Email</label>
+          <label for="username" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Username</label>
           <input
-            id="email"
-            type="email"
-            placeholder="your.email@example.com"
-            required
+            id="username"
+            type="text"
+            formControlName="username"
+            placeholder="Enter your username"
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="f['username'].invalid && (f['username'].dirty || f['username'].touched)"
           />
+          <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['username'].errors?.['required']">Username is required.</div>
+            <div *ngIf="f['username'].errors?.['pattern']">Username must be English letters, numbers or underscores only.</div>
+          </div>
         </div>
 
         <div class="space-y-2">
@@ -33,16 +44,21 @@
           <input
             id="password"
             type="password"
+            formControlName="password"
             placeholder="Enter your password"
-            required
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
           />
+          <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['password'].errors?.['required']">Password is required.</div>
+          </div>
         </div>
       </div>
 
       <div class="flex items-center p-6 pt-0 flex-col gap-4">
-        <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full">
-          Sign In
+        <button type="submit" [disabled]="isLoading" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full">
+          <span *ngIf="isLoading">Signing In...</span>
+          <span *ngIf="!isLoading">Sign In</span>
         </button>
 
         <div class="relative w-full">
