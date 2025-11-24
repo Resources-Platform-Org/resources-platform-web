@@ -13,16 +13,31 @@ import { LevelsComponent } from './admin/levels/levels.component';
 import { UsersComponent } from './admin/users/users.component';
 import { SettingsComponent } from './admin/settings/settings.component';
 import { ActivityLogsComponent } from './admin/activity-logs/activity-logs.component';
+import { authGuard, authMatchGuard } from './core/auth/auth.guard';
+import { adminChildGuard, adminGuard, adminMatchGuard } from './core/auth/admin.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', redirectTo: '', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'content', component: ContentComponent },
-  { path: 'content/:id', component: ContentDetailComponent },
+  {
+    path: 'content',
+    component: ContentComponent,
+    canActivate: [authGuard],
+    canMatch: [authMatchGuard],
+  },
+  {
+    path: 'content/:id',
+    component: ContentDetailComponent,
+    canActivate: [authGuard],
+    canMatch: [authMatchGuard],
+  },
   {
     path: 'admin',
+    canMatch: [adminMatchGuard],
+    canActivate: [adminGuard],
+    canActivateChild: [adminChildGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'files', component: FilesComponent },
