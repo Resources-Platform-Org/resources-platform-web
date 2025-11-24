@@ -10,17 +10,26 @@
       <p class="text-sm text-muted-foreground">Join our educational community today</p>
     </div>
 
-    <form>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="p-6 pt-0 space-y-4">
+        <div *ngIf="errorMessage" class="p-3 text-sm text-red-500 bg-red-50 rounded-md border border-red-200">
+          {{ errorMessage }}
+        </div>
+
         <div class="space-y-2">
-          <label for="fullName" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Full Name</label>
+          <label for="username" class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">Username</label>
           <input
-            id="fullName"
+            id="username"
             type="text"
-            placeholder="John Doe"
-            required
+            formControlName="username"
+            placeholder="Choose a username"
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="f['username'].invalid && (f['username'].dirty || f['username'].touched)"
           />
+          <div *ngIf="f['username'].invalid && (f['username'].dirty || f['username'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['username'].errors?.['required']">Username is required.</div>
+            <div *ngIf="f['username'].errors?.['pattern']">Use letters, numbers, or underscores only.</div>
+          </div>
         </div>
 
         <div class="space-y-2">
@@ -28,10 +37,15 @@
           <input
             id="email"
             type="email"
+            formControlName="email"
             placeholder="your.email@example.com"
-            required
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="f['email'].invalid && (f['email'].dirty || f['email'].touched)"
           />
+          <div *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['email'].errors?.['required']">Email is required.</div>
+            <div *ngIf="f['email'].errors?.['email']">Enter a valid email address.</div>
+          </div>
         </div>
 
         <div class="space-y-2">
@@ -39,21 +53,14 @@
           <input
             id="password"
             type="password"
-            placeholder="Create a strong password"
-            required
+            formControlName="password"
+            placeholder="Create a password"
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="f['password'].invalid && (f['password'].dirty || f['password'].touched)"
           />
-          <!-- Password strength indicator placeholder -->
-          <div class="space-y-1">
-            <div class="flex gap-1">
-              <div class="h-1 flex-1 rounded bg-muted"></div>
-              <div class="h-1 flex-1 rounded bg-muted"></div>
-              <div class="h-1 flex-1 rounded bg-muted"></div>
-              <div class="h-1 flex-1 rounded bg-muted"></div>
-            </div>
-            <p class="text-xs text-muted-foreground">
-              Password strength: 
-            </p>
+          <div *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['password'].errors?.['required']">Password is required.</div>
+            <div *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters.</div>
           </div>
         </div>
 
@@ -62,16 +69,22 @@
           <input
             id="confirmPassword"
             type="password"
+            formControlName="confirmPassword"
             placeholder="Confirm your password"
-            required
             class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            [class.border-red-500]="(f['confirmPassword'].invalid || registerForm.hasError('passwordMismatch')) && (f['confirmPassword'].dirty || f['confirmPassword'].touched)"
           />
+          <div *ngIf="(f['confirmPassword'].invalid || registerForm.hasError('passwordMismatch')) && (f['confirmPassword'].dirty || f['confirmPassword'].touched)" class="text-xs text-red-500">
+            <div *ngIf="f['confirmPassword'].errors?.['required']">Confirming your password is required.</div>
+            <div *ngIf="!f['confirmPassword'].errors?.['required'] && registerForm.hasError('passwordMismatch')">Passwords must match.</div>
+          </div>
         </div>
       </div>
 
       <div class="flex items-center p-6 pt-0 flex-col gap-4">
-        <button type="submit" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full">
-          Create Account
+        <button type="submit" [disabled]="isLoading" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-11 rounded-md px-8 w-full">
+          <span *ngIf="isLoading">Creating account...</span>
+          <span *ngIf="!isLoading">Create Account</span>
         </button>
 
         <div class="relative w-full">
