@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TokenStorageService } from '../../core/auth/token-storage.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +10,9 @@ import { RouterLink } from '@angular/router';
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
+  private tokenStorage = inject(TokenStorageService);
+
   get isAdmin(): boolean {
-    return localStorage.getItem('role') === 'Admin';
+    return !!this.tokenStorage.getToken() && this.tokenStorage.getRole() === 'Admin';
   }
 }
