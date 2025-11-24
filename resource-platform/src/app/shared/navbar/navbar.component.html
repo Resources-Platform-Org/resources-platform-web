@@ -19,8 +19,8 @@
       </div>
 
       <div class="flex items-center gap-3">
-        <!-- الزر الجديد للتوجيه إلى صفحة جديدة -->
-        <a routerLink="/admin/dashboard"
+        <!-- Dashboard button for admins only -->
+        <a *ngIf="isAdmin" routerLink="/admin/dashboard"
           class="inline-flex items-center justify-center gap-3 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-primary-500 focus:ring-opacity-50 bg-gradient-to-r from-blue-500 via-indigo-600 to-purple-700 text-white hover:bg-gradient-to-r hover:from-blue-600 hover:via-indigo-700 hover:to-purple-800 px-6 py-3">
           <span>Dashboard</span>
         </a>

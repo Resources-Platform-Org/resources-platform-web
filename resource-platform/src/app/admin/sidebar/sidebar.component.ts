@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { TokenStorageService } from '../../core/auth/token-storage.service';
 
 @Component({
   selector: 'app-admin-sidebar',
@@ -8,7 +9,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './sidebar.component.html',
 })
 export class SidebarComponent {
-  logout() {
-    console.log('Logout');
+  private router = inject(Router);
+  private tokenStorage = inject(TokenStorageService);
+
+  logout(): void {
+    this.tokenStorage.signOut();
+    this.router.navigate(['/home']);
   }
 }
